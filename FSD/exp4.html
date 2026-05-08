@@ -1,0 +1,53 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event ListeXners</title>
+
+<style>
+#myImage{
+  width:300px;
+  border:2px solid transparent;
+  transition:border-color 0.3s;
+}
+</style>
+
+</head>
+
+<body>
+
+<button id="clickMeButton">Click Me</button>
+
+<br><br>
+
+<img id="myImage" src="https://www.spiritmiracle.com/wp-content/uploads/2024/02/Hanuman-leaping-across-ocean.jpg" alt="HANUMAN">
+
+<script>
+
+document.getElementById("clickMeButton").addEventListener("click", function(){
+  console.log("Button clicked!");
+});
+
+const image = document.getElementById("myImage");
+
+image.addEventListener("mouseover", function(){
+  image.style.borderColor = "blue";
+});
+
+image.addEventListener("mouseout", function(){
+  image.style.borderColor = "transparent";
+});
+
+document.addEventListener("keydown", function(event){
+  console.log("Key pressed:", event.key);
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = {
+    name: "Shridhar",
+    grade: 85,
+    subjects: ["Math", "Science", "English"],
+    displayInfo: function () {
+        console.log("Student Name:", this.name);
+        console.log("Grade:", this.grade);
+        console.log("Subjects:", this.subjects.join(", "));
+    }
+};
+
+function addGradeProperty(student) {
+    const propertyName = student.grade >= 60 ? "passed" : "failed";
+    student[propertyName] = true;
+}
+
+student.displayInfo();
+
+addGradeProperty(student);
+
+console.log("\nStudent Object Details:");
+for (const key in student) {
+    if (student.hasOwnProperty(key)) {
+        console.log(key + ": ", student[key]);
+    }
+}
+    </script>
+</body>
+</html>

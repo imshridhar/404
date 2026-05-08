@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        let str=prompt("Enter a String:");
+        console.log("length of the string:",str.length);
+        let extractedWord="";
+        if(str.includes("JavaScript")){
+            extractedWord=str.substring(str.indexOf("JavaScript"),
+            str.indexOf("JavaScript")+"JavaScript".length);
+        console.log("Extracted Word",extractedWord);
+        }
+        else{
+            console.log("JavaScript not found in the string");
+        }
+        let newStrig=str.replace("JavaScript","JS");
+        console.log("Updated String :",newStrig);
+        function isPalindrome(str){
+            let cleanedStr=str.toLowerCase().replace(/[^a-z0-9]/g,"");
+            let reversedStr =cleanedStr.split("").reverse().join("");
+            return cleanedStr === reversedStr;
+        }
+        let palindromeInput=prompt("Enter a string to check palindrome : ");
+        console.log("Is palendrome ?", isPalindrome(palindromeInput));
+        
+        
+    </script>
+</body>
+</html>
