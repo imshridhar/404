@@ -12,26 +12,24 @@
 <style>
 #myImage{
   width:300px;
-  border:2px solid transparent;
-  transition:border-color 0.3s;
+  border:2px solid red;
 }
 </style>
 
 </head>
 
 <body>
-
-<button id="clickMeButton">Click Me</button>
-
-<br><br>
-
-<img id="myImage" src="https://www.spiritmiracle.com/wp-content/uploads/2024/02/Hanuman-leaping-across-ocean.jpg" alt="HANUMAN">
+  <button id="clickMeButton">click me</button>
+  <br><br>
+  <img id="myImage" src="https://i.pinimg.com/736x/71/c7/f6/71c7f6abebd07fba793d071e87d79d75.jpg" alt="">
 
 <script>
 
-document.getElementById("clickMeButton").addEventListener("click", function(){
-  console.log("Button clicked!");
-});
+const button = document.getElementById("clickMeButton")
+
+button.addEventListener("click",function(){
+  console.log("Button Clicked");
+})
 
 const image = document.getElementById("myImage");
 
@@ -40,7 +38,7 @@ image.addEventListener("mouseover", function(){
 });
 
 image.addEventListener("mouseout", function(){
-  image.style.borderColor = "transparent";
+  image.style.borderColor = "red";
 });
 
 document.addEventListener("keydown", function(event){

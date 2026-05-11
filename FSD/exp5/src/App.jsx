@@ -1,7 +1,15 @@
 import React from "react";
 const issues=[
-  {id:1,title:"Login Issue",description:"Button not working",status:"open"},
-  {id:2,title:"UI Bug",description:"Alignment Problem",status:"closed"},
+  {id:1,
+   title:"Login Issue",
+   description:"Button not working",
+   status:"open"},
+
+  {id:2,
+   title:"UI Bug",
+   description:"Alignment Problem",
+   status:"closed"},
+   
 ];
 
 function App() {
