@@ -11,10 +11,8 @@ function App() {
 
   return (
     <>
-    <div style={{padding:"20px"}}>
       <input type="text" placeholder='Type Something...' value={text} onChange={handlechange}/>
       <h1>{text}</h1>
-    </div>
     </>
   )
 }
