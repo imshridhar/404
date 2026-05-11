@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header"
 import Footer from "./Footer"
-import './App.css'
 
 function App() {
 const appTitle ="My React props Demo";
@@ -10,7 +9,7 @@ const copyright=`@${new Date().getFullYear()} My company. All rights reserved.`;
 
   return (
     <>
-    <div style={{textAlign:"center" , minHeight:"100vh"}}>
+    <div style={{textAlign:"center" , minHeight:"20%"}}>
       <Header title={appTitle}/>
       <main style={{padding:"2rem"}}>
         <p>This content is inside the App componet</p>

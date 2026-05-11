@@ -2,7 +2,7 @@ import React from "react"
 
 function Header(props) {
     return(
-        <header style={{background:"#282c34" , color:'#fff' , padding:"1.5rem"}}>
+        <header style={{background:"blue"  , padding:"1.5rem"}}>
             <h1>{props.title}</h1>
         </header>
     );

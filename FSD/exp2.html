@@ -8,27 +8,22 @@
 </head>
 <body>
     <script>
-        let str=prompt("Enter a String:");
-        console.log("length of the string:",str.length);
-        let extractedWord="";
-        if(str.includes("JavaScript")){
-            extractedWord=str.substring(str.indexOf("JavaScript"),
-            str.indexOf("JavaScript")+"JavaScript".length);
-        console.log("Extracted Word",extractedWord);
-        }
-        else{
-            console.log("JavaScript not found in the string");
-        }
-        let newStrig=str.replace("JavaScript","JS");
-        console.log("Updated String :",newStrig);
-        function isPalindrome(str){
-            let cleanedStr=str.toLowerCase().replace(/[^a-z0-9]/g,"");
-            let reversedStr =cleanedStr.split("").reverse().join("");
-            return cleanedStr === reversedStr;
-        }
-        let palindromeInput=prompt("Enter a string to check palindrome : ");
-        console.log("Is palendrome ?", isPalindrome(palindromeInput));
-        
+let userInput = prompt("Enter a string:");
+console.log("Length of the string: " + userInput.length);
+
+let extractedWord = userInput.substring(0, 10); 
+console.log("Extracted word: " + extractedWord);
+
+let newString = userInput.replace("oldWord", "newWord");
+console.log("New string: " + newString);
+
+
+function isPalindrome(str) {
+let reversedStr = str.split('').reverse().join('');
+return str === reversedStr;
+}
+console.log(isPalindrome("madam")); 
+console.log(isPalindrome("hello"));
         
     </script>
 </body>
