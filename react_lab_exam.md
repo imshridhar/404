@@ -1,4 +1,4 @@
-# 🔥 React Lab Exam - All 10 Experiments
+# React Lab Exam - All 10 Experiments
 
 > **🧠 Memory Trick: React = Input(1) → Props(2) → Counter(3) → Todo(4) → Gallery(5) → Form(6) → Card(7) → Reminder(8) → Router(9) → Class(10)**
 > Short: **I P C T G F C R R C** = "**I Play Cricket, The Game Feels Cool, Really Really Cool**"
@@ -582,22 +582,21 @@ export default function App() {
 
 ## 🧠 REPEATING PATTERNS (Memorize These Once, Use Everywhere!)
 
-| Pattern | Exp Numbers | Code |
-|---------|------------|------|
-| `useState` | 1,3,4,5,6,7,8 | `const [x, setX] = useState("")` |
-| `onChange` handler | 1,3,4,5,6,8 | `onChange={e => setX(e.target.value)}` |
-| `...spread` to update | 4,5,6,8 | `setData({...data, name: val})` |
-| `.map()` to render list | 4,5,8,9,10 | `arr.map(item => <div key={id}>)` |
-| `.filter()` to remove | 4,5,8 | `arr.filter((_, i) => i !== index)` |
-| Props passing | 2,5,7 | `<Comp name={val} />` → `props.name` |
-| Inline style object | ALL | `style={{ color: "red" }}` |
-| Conditional render | 5,6,8,10 | `{err && <p>{err}</p>}` |
-| `export default` | ALL | Last line of every component |
+| Pattern                   | Exp Numbers   | Code                                      |
+| ------------------------- | ------------- | ----------------------------------------- |
+| `useState`              | 1,3,4,5,6,7,8 | `const [x, setX] = useState("")`        |
+| `onChange` handler      | 1,3,4,5,6,8   | `onChange={e => setX(e.target.value)}`  |
+| `...spread` to update   | 4,5,6,8       | `setData({...data, name: val})`         |
+| `.map()` to render list | 4,5,8,9,10    | `arr.map(item => <div key={id}>)`       |
+| `.filter()` to remove   | 4,5,8         | `arr.filter((_, i) => i !== index)`     |
+| Props passing             | 2,5,7         | `<Comp name={val} />` → `props.name` |
+| Inline style object       | ALL           | `style={{ color: "red" }}`              |
+| Conditional render        | 5,6,8,10      | `{err && <p>{err}</p>}`                 |
+| `export default`        | ALL           | Last line of every component              |
 
 > [!IMPORTANT]
 > **THE 3 PATTERNS that solve 90% of questions:**
-> 1. **Add item:** `setArr([...arr, newItem])` 
+>
+> 1. **Add item:** `setArr([...arr, newItem])`
 > 2. **Remove item:** `setArr(arr.filter((_, i) => i !== index))`
 > 3. **Toggle item:** `setArr(arr.map(t => t.id === id ? {...t, done: !t.done} : t))`
-
-Good luck Shridhar! 🚀
