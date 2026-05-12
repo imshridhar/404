@@ -1,79 +1,76 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function ToDoFunction() {
+export default function App() {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
 
-  const addTask = () => {
-    if (!task) return;
-    setTasks([...tasks, { text: task, done: false }]);
-    setTask("");
-  };
-
-  const toggle = (i) => {
-    const t = [...tasks];
-    t[i].done = !t[i].done;
-    setTasks(t);
-  };
-
-  const remove = (i) => {
-    setTasks(tasks.filter((_, index) => index !== i));
-  };
-
   return (
-    <div style={styles.box}>
-      <h3>To-Do List</h3>
+    <div style={{ width: 300, margin: "20px auto" }}>
+      <h2>To-Do List</h2>
 
-      <div>
-        <input
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Add task"
-          style={styles.input}
-        />
-        <button onClick={addTask} style={styles.add}>Add</button>
-      </div>
+      <input
+        placeholder="Add task"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+      />
 
-      <ul style={styles.list}>
+      <button
+        onClick={() => {
+          if (!task) return;
+
+          setTasks([
+            ...tasks,
+            { text: task, done: false }
+          ]);
+
+          setTask("");
+        }}
+      >
+        Add
+      </button>
+
+      <ul style={{ listStyle: "none", padding: 0 }}>
+
         {tasks.map((t, i) => (
-          <li key={i} style={styles.item}>
+          <li
+            key={i}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 10
+            }}
+          >
+
             <span
-              onClick={() => toggle(i)}
+              onClick={() =>
+                setTasks(
+                  tasks.map((x, j) =>
+                    j === i
+                      ? { ...x, done: !x.done }
+                      : x
+                  )
+                )
+              }
               style={{
-                textDecoration: t.done ? "line-through" : "none",
-                color: t.done ? "gray" : "black",
-                cursor: "pointer"
+                textDecoration:
+                  t.done ? "line-through" : "none"
               }}
             >
               {t.text}
             </span>
-            <button onClick={() => remove(i)} style={styles.del}>X</button>
+
+            <button
+              onClick={() =>
+                setTasks(tasks.filter((_, j) => j !== i))
+              }
+            >
+              X
+            </button>
+
           </li>
         ))}
+
       </ul>
     </div>
   );
 }
-
-const styles = {
-  box: { 
-    width: "320px", margin: "40px auto", fontFamily: "Arial", textAlign: "center" 
-    },
-  input: { 
-    padding: "6px", width: "65%" 
-  },
-  add: { 
-    padding: "6px 10px", marginLeft: "5px" 
-},
-  list: { 
-    listStyle: "none", padding: 0, marginTop: "15px" 
-},
-  item: { 
-    display: "flex", justifyContent: "space-between", padding: "6px", borderBottom: "1px solid #ddd" 
-},
-  del: {
-     background: "red", color: "white", border: "none", padding: "3px 7px", cursor: "pointer" 
-    }
-};
-
-export default ToDoFunction;

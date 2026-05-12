@@ -1,100 +1,108 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function BasicFigure({ url, caption, onRemove }) {
-  const [imgError, setImgError] = useState(false);
+function Figure({ url, caption, remove }) {
+  const [error, setError] = useState(false);
 
   return (
-    <div
-      style={{
-        border: "1px solid #ccc",
-        padding: 10,
-        borderRadius: 8,
-        width: "100%",
-        boxSizing: "border-box",
-        textAlign: "center"
-      }}
-    >
-      {!imgError ? (
+    <div style={{
+      border: "1px solid gray",
+      padding: 10,
+      textAlign: "center"
+    }}>
+
+      {error ? (
+        <p>Invalid Image</p>
+      ) : (
         <img
           src={url}
           alt={caption}
-          onError={() => setImgError(true)}
-          style={{
-            width: "100%",
-            height: "150px",
-            objectFit: "cover",
-            borderRadius: 6,
-            display: "block"
-          }}
+          onError={() => setError(true)}
+          style={{ width: "100%", height: 150 }}
         />
-      ) : (
-        <div style={{ height: 150, display: "flex", alignItems: "center", justifyContent: "center", background: "#eee" }}>
-          Invalid Image URL
-        </div>
       )}
 
-      <p style={{ margin: "8px 0" }}>{caption}</p>
-      <button onClick={onRemove}>Remove</button>
+      <p>{caption}</p>
+
+      <button onClick={remove}>
+        Remove
+      </button>
+
     </div>
   );
 }
 
+export default function App() {
 
-export default function FigureList() {
   const [figures, setFigures] = useState([
-    { url: "https://picsum.photos/300/200?1", caption: "Image 1" },
-    { url: "https://picsum.photos/300/200?2", caption: "Image 2" }
+    {
+      url: "https://picsum.photos/300/200?1",
+      caption: "Image 1"
+    },
+    {
+      url: "https://picsum.photos/300/200?2",
+      caption: "Image 2"
+    }
   ]);
 
   const [url, setUrl] = useState("");
   const [caption, setCaption] = useState("");
 
-  const addFigure = () => {
+  const add = () => {
     if (!url || !caption) return;
 
-    setFigures([...figures, { url, caption }]);
+    setFigures([
+      ...figures,
+      { url, caption }
+    ]);
+
     setUrl("");
     setCaption("");
   };
 
-  const removeFigure = (index) => {
-    setFigures(figures.filter((_, i) => i !== index));
+  const remove = (i) => {
+    setFigures(
+      figures.filter((_, index) => index !== i)
+    );
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: 900, margin: "auto" }}>
-      <div style={{ marginBottom: 15 }}>
-        <input
-          placeholder="Image URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          style={{ marginRight: 8 }}
-        />
-        <input
-          placeholder="Caption"
-          value={caption}
-          onChange={(e) => setCaption(e.target.value)}
-          style={{ marginRight: 8 }}
-        />
-        <button onClick={addFigure}>Add</button>
-      </div>
+    <div style={{ padding: 20 }}>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))",
-          gap: 15
-        }}
-      >
-        {figures.map((fig, i) => (
-          <BasicFigure
+      <input
+        placeholder="Image URL"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+
+      <input
+        placeholder="Caption"
+        value={caption}
+        onChange={(e) => setCaption(e.target.value)}
+      />
+
+      <button onClick={add}>
+        Add
+      </button>
+
+      <br /><br />
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2,1fr)",
+        gap: 10
+      }}>
+
+        {figures.map((f, i) => (
+          <Figure
             key={i}
-            url={fig.url}
-            caption={fig.caption}
-            onRemove={() => removeFigure(i)}
+            url={f.url}
+            caption={f.caption}
+            remove={() => remove(i)}
           />
         ))}
+
       </div>
+
     </div>
   );
 }
