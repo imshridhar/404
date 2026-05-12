@@ -1,66 +1,33 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-
-function Navbar() {
-  const linkStyle = ({ isActive }) => ({
-    padding: "10px 15px",
-    textDecoration: "none",
-    borderRadius: "5px",
-    marginRight: "10px",
-    color: isActive ? "white" : "black",
-    backgroundColor: isActive ? "#007bff" : "transparent",
-  });
-
-  return (
-    <nav style={{ padding: "15px", borderBottom: "1px solid #ccc" }}>
-      <NavLink to="/" style={linkStyle} end>
-        Home
-      </NavLink>
-      <NavLink to="/about" style={linkStyle}>
-        About
-      </NavLink>
-      <NavLink to="/contact" style={linkStyle}>
-        Contact
-      </NavLink>
-    </nav>
-  );
-}
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function Home() {
-  return (
-    <div className="page">
-      <h1>Home Page</h1>
-      <p>Welcome to the Home page of this React Router demo.</p>
-    </div>
-  );
+  return <h1>Home Page</h1>;
 }
 
 function About() {
-  return (
-    <div className="page">
-      <h1>About Page</h1>
-      <p>This page gives information about the application.</p>
-    </div>
-  );
+  return <h1>About Page</h1>;
 }
 
 function Contact() {
-  return (
-    <div className="page">
-      <h1>Contact Page</h1>
-      <p>Feel free to reach out through this contact page.</p>
-    </div>
-  );
+  return <h1>Contact Page</h1>;
 }
 
-export default function Nav() {
+export default function App() {
   return (
-    <Router>
-      <Navbar />
+    <BrowserRouter>
+
+      <nav>
+        <Link to="/">Home </Link>
+        <Link to="/about">About </Link>
+        <Link to="/contact">Contact</Link>
+      </nav>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </Router>
+
+    </BrowserRouter>
   );
 }
