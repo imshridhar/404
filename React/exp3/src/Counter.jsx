@@ -8,7 +8,7 @@ export default function Counter(){
     const[step , setStep]=useState(1);
 
     const inc = ()=> setCount(c=>c+step);
-    const dec = ()=> setCount(c => Math.max(MIN ,c - step));
+    const dec = ()=> setCount(c=> Math.max(MIN ,c - step));
     const reset = ()=> setCount(START);
 
     return(

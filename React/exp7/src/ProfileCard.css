@@ -1,59 +1,17 @@
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  padding: 20px;
+.app{
+  text-align:center;
+  margin-top:50px;
 }
 
-.profile-card {
-  width: 300px;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  text-align: center;
-  cursor: pointer;
+.card{
+  width:250px;
+  margin:auto;
+  padding:20px;
+  border:1px solid black;
 }
 
-.profile-name {
-  margin: 10px 0 5px 0;
-  font-size: 22px;
-  color: #1f2937;
-}
-
-.profile-bio {
-  font-size: 14px;
-  color: #4b5563;
-  line-height: 1.5;
-}
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #4f46e5;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-button:hover {
-  background: #3730a3;
-}
-
-@media (max-width: 480px) {
-  .profile-card {
-    width: 90%;
-  }
+img{
+  width:100px;
+  height:100px;
+  border-radius:50%;
 }
