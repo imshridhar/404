@@ -1,0 +1,51 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event ListeXners</title>
+
+<style>
+#myImage{
+  width:300px;
+  border:2px solid red;
+}
+</style>
+
+</head>
+
+<body>
+  <button id="clickMeButton">click me</button>
+  <br><br>
+  <img id="myImage" src="https://i.pinimg.com/736x/71/c7/f6/71c7f6abebd07fba793d071e87d79d75.jpg" alt="">
+
+<script>
+
+const button = document.getElementById("clickMeButton")
+
+button.addEventListener("click",function(){
+  console.log("Button Clicked");
+})
+
+const image = document.getElementById("myImage");
+
+image.addEventListener("mouseover", function(){
+  image.style.borderColor = "blue";
+});
+
+image.addEventListener("mouseout", function(){
+  image.style.borderColor = "red";
+});
+
+document.addEventListener("keydown", function(event){
+  console.log("Key pressed:", event.key);
+});
+
+</script>
+
+</body>
+</html>

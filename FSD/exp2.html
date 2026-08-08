@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+let userInput = prompt("Enter a string:");
+console.log("Length of the string: " + userInput.length);
+
+let extractedWord = userInput.substring(0, 10); 
+console.log("Extracted word: " + extractedWord);
+
+let newString = userInput.replace("oldWord", "newWord");
+console.log("New string: " + newString);
+
+
+function isPalindrome(str) {
+let reversedStr = str.split('').reverse().join('');
+return str === reversedStr;
+}
+console.log(isPalindrome("madam")); 
+console.log(isPalindrome("hello"));
+        
+    </script>
+</body>
+</html>
